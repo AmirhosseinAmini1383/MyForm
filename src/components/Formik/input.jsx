@@ -11,10 +11,13 @@ const Input = (props) => {
       <label className="form-label">{label}</label>
       <FastField
         type={type}
-        className={`form-control ${isError ? "input-err" : ""}`}
+        className={`form-control input_margin_bottom ${
+          isError ? "input-err" : ""
+        }`}
         placeholder={placeholder}
         name={name}
       />
+
       <ErrorMessage name={name} component={PersonalError} />
     </div>
   );

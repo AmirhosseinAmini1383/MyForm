@@ -1,6 +1,6 @@
 :root {
   --Black: #212529;
-  --LightGray: #e9ecef;
+  --LightGray: #f3f5f9;
   --SkyBlue: #7dcaee;
   --Red: #ee7d7d;
   --Purper: #500fe9;
@@ -13,7 +13,7 @@
   src: url(../font/Vazir-Medium.woff);
 }
 body {
-  background: var(--White);
+  background: var(--LightGray);
   padding: 0;
   margin: 0;
 }
@@ -35,7 +35,7 @@ body {
 }
 label {
   font-size: 13px;
-  padding: 10px 0px;
+  padding: 5px 0px;
 }
 .displayform {
   display: grid;
@@ -101,7 +101,7 @@ label {
   padding: 10px;
 }
 .form-control {
-  background-color: var(--White);
+  background-color: var(--LightGray);
   border: 1px solid #ccc;
   height: 40px;
   border-radius: 8px;
@@ -111,7 +111,14 @@ label {
   font-family: Vazir;
   padding-right: 5px;
 }
+.input_margin_bottom {
+  margin-bottom: 21px;
+}
+.form-control:hover {
+  box-shadow: 0 0 3px rgba(118, 131, 145, 0.8);
+}
 .form-control::placeholder {
+  color: #969ba2;
   padding-right: 5px;
   font-size: 12px;
   transition: font-size 0.3s ease-in-out;
@@ -122,14 +129,18 @@ label {
   padding-top: 6px;
   top: 0;
   font-size: 10px;
-  /* transition: 0.3s all; */
 }
 .form-control:focus {
   border-color: var(--PurpleInput);
+  box-shadow: none;
 }
 
 .input-err {
   border: 1px solid var(--Red);
+  margin-bottom: 0px;
+}
+.input-err:hover {
+  box-shadow: none;
 }
 .input-err::placeholder {
   color: var(--Red);
@@ -148,11 +159,12 @@ label {
   min-height: 50px;
 }
 .login-info {
+  color: var(gray);
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 15px;
-  font-size: 15px;
+  font-size: 12px;
 }
 .p-info {
   margin-left: 10px;
@@ -167,6 +179,7 @@ a {
   margin-top: 5px;
   font-size: 10px;
   color: var(--Red);
+  /* transition: 0.3s all; */
 }
 
 @media (max-width: 400px) {

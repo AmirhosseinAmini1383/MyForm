@@ -4,6 +4,8 @@ import { Form, Formik } from "formik";
 import "../../css/style/Form.css";
 import FormikControl from "../../components/Formik/FormikControl";
 import { Link } from "react-router-dom";
+import showPassword from "../../css/images/show-password.png";
+import hidePassword from "../../css/images/hide-password.png";
 const Login = () => {
   const initialValues = {
     phone: "",
@@ -16,13 +18,13 @@ const Login = () => {
   const validationSchema = Yup.object({
     phone: Yup.string()
       .required("وارد کردن شماره موبایل الزامی است")
-      .matches(
-        /^(09(1[0-93[1-92[1-9])-?[0-9]{3}-?[0-9]{4}){11}$/,
-        "شماره موبایل خود را به درستی وارد کنید"
-      ),
+      .matches(/^(09\d{9})$/, "شماره موبایل خود را به درستی وارد کنید"),
     password: Yup.string()
       .required("وارد کردن گذرواژه الزامی است")
-      .matches(/^[a-zA-Z0-9@!%$?&]+$/, "فقط از حروف و اعداد استفاده شود"),
+      .matches(
+        /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$&*]).{8,}$/,
+        "فقط از حروف و اعداد استفاده شود"
+      ),
     remember: Yup.boolean(),
   });
   return (
@@ -41,11 +43,11 @@ const Login = () => {
                 <FormikControl
                   formik={formik}
                   control="input"
+                  // type="number"
                   type="text"
                   placeholder="شماره موبایل"
                   label="برای ورود شماره موبایل خود را وارد کنید"
                   name="phone"
-                  icon="fa fa-mobile"
                 />
                 <FormikControl
                   formik={formik}
@@ -54,8 +56,11 @@ const Login = () => {
                   placeholder="گذرواژه"
                   label="رمزعبور خود را وارد کنید"
                   name="password"
-                  icon="fa fa-lock"
                 />
+                <div className="icon_password">
+                  <img src={hidePassword} alt="hidePassword" />
+                  <img src={showPassword} alt="showPassword" />
+                </div>
                 <div className="btnform">
                   <button className="btn Add" type="submit">
                     ورود
