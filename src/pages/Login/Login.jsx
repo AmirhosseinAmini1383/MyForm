@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import "../../css/style/Form.css";
@@ -7,11 +7,14 @@ import { Link } from "react-router-dom";
 import showPassword from "../../css/images/show-password.png";
 import hidePassword from "../../css/images/hide-password.png";
 const Login = () => {
+  const [password, setPassword] = useState("");
+  const [visible, setVisible] = useState(true);
   const initialValues = {
     phone: "",
     password: "",
     remember: false,
   };
+
   const onSubmit = (values) => {
     console.log(values);
   };
@@ -34,7 +37,7 @@ const Login = () => {
       validationSchema={validationSchema}
     >
       {(formik) => {
-        console.log(formik);
+        // console.log(formik);
         return (
           <div>
             <h1 className="title">&lt;/A&gt; ورود به </h1>
@@ -52,14 +55,34 @@ const Login = () => {
                 <FormikControl
                   formik={formik}
                   control="input"
-                  type="password"
+                  defaultValue={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  type={visible ? "text" : "password"}
                   placeholder="گذرواژه"
                   label="رمزعبور خود را وارد کنید"
                   name="password"
                 />
-                <div className="icon_password">
-                  <img src={hidePassword} alt="hidePassword" />
-                  <img src={showPassword} alt="showPassword" />
+                <div
+                  className="icon_password"
+                  onClick={() => {
+                    setVisible(!visible);
+                  }}
+                >
+                  {visible ? (
+                    <img
+                      src={hidePassword}
+                      alt="hidePassword"
+                      className="toggle-Pass"
+                    />
+                  ) : (
+                    <img
+                      src={showPassword}
+                      alt="showPassword"
+                      className="toggle-Pass"
+                    />
+                  )}
                 </div>
                 <div className="btnform">
                   <button className="btn Add" type="submit">

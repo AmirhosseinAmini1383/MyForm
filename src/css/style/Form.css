@@ -181,7 +181,15 @@ a {
   color: var(--Red);
   /* transition: 0.3s all; */
 }
-
+.icon_password {
+  position: absolute;
+  top: 242px;
+  padding-left: 7px;
+}
+.toggle-Pass {
+  width: 18px;
+  height: 18px;
+}
 @media (max-width: 400px) {
   .form {
     width: calc(100% - 20px);

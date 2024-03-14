@@ -5,7 +5,7 @@ import PersonalError from "./personal/PersonalError";
 const Input = (props) => {
   const { label, type, name, placeholder, formik } = props;
   const isError = formik.errors[name] && formik.touched[name];
-  console.log(formik.errors);
+  // console.log(formik.errors);
   return (
     <div className="displayform">
       <label className="form-label">{label}</label>
