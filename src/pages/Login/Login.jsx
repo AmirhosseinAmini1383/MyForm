@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import showPassword from "../../css/images/show-password.png";
 import hidePassword from "../../css/images/hide-password.png";
 const Login = () => {
-  const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(true);
   const initialValues = {
     phone: "",
@@ -37,7 +36,7 @@ const Login = () => {
       validationSchema={validationSchema}
     >
       {(formik) => {
-        // console.log(formik);
+        console.log(formik);
         return (
           <div>
             <h1 className="title">&lt;/A&gt; ورود به </h1>
@@ -55,10 +54,6 @@ const Login = () => {
                 <FormikControl
                   formik={formik}
                   control="input"
-                  defaultValue={password}
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
                   type={visible ? "text" : "password"}
                   placeholder="گذرواژه"
                   label="رمزعبور خود را وارد کنید"
@@ -84,6 +79,12 @@ const Login = () => {
                     />
                   )}
                 </div>
+                <FormikControl
+                  formik={formik}
+                  control="switch"
+                  name="remember"
+                  label="مرا بخاطر بسپارید"
+                />
                 <div className="btnform">
                   <button className="btn Add" type="submit">
                     ورود
