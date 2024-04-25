@@ -42,35 +42,7 @@ label {
   grid-template-columns: repeat(1, 1fr);
   direction: rtl;
 }
-.FavDiv {
-  position: relative;
-  margin-top: 40px;
-}
-.FavLabel {
-  position: absolute;
-  top: -40px;
-  right: 35px;
-  z-index: 9999999;
-}
-.FavInput {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-.BtnAddFav {
-  width: 25px;
-  height: 25px;
-  top: -25px;
-  right: 5px;
-  position: absolute;
-  z-index: 999999999;
-}
-.BtnRemoveFav {
-  width: 20px;
-  height: 20px;
-  top: 20px;
-  left: 5px;
-  position: absolute;
-}
+
 .btnform {
   text-align: center;
   direction: rtl;
@@ -185,6 +157,8 @@ a {
   position: absolute;
   top: 240px;
   padding-left: 7px;
+  width: 18px;
+  height: 18px;
 }
 .toggle-Pass {
   width: 18px;

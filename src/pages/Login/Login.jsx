@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import "../../css/style/Form.css";
@@ -7,13 +7,12 @@ import { Link } from "react-router-dom";
 import showPassword from "../../css/images/show-password.png";
 import hidePassword from "../../css/images/hide-password.png";
 const Login = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const initialValues = {
     phone: "",
     password: "",
     remember: false,
   };
-
   const onSubmit = (values) => {
     console.log(values);
   };
@@ -45,7 +44,6 @@ const Login = () => {
                 <FormikControl
                   formik={formik}
                   control="input"
-                  // type="number"
                   type="text"
                   placeholder="شماره موبایل"
                   label="برای ورود شماره موبایل خود را وارد کنید"
@@ -61,9 +59,7 @@ const Login = () => {
                 />
                 <div
                   className="icon_password"
-                  onClick={() => {
-                    setVisible(!visible);
-                  }}
+                  onClick={() => setVisible(!visible)}
                 >
                   {visible ? (
                     <img
